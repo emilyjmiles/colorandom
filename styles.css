@@ -19,16 +19,6 @@ body {
   justify-content: space-evenly;
 }
 
-.box {
-  width: 200px;
-  height: 200px;
-}
-
-.color-and-lock {
-display: flex;
-flex-direction: flex-end;
-}
-
 .individual-box {
   display: flex;
   flex-direction: column;
@@ -38,12 +28,21 @@ flex-direction: flex-end;
   height: 200px;
 }
 
+.box {
+  width: 200px;
+  height: 200px;
+}
+
+.color-and-lock {
+  display: flex;
+  flex-direction: flex-end;
+}
+
 h2 {
   font-size: 12px;
-  width: 150px;
+  width: 200px;
   height: 40px;
   text-align: center;
-  align-self: flex-end;
 }
 
 .individual-box:nth-child(1) {
@@ -51,19 +50,19 @@ h2 {
 }
 
 .individual-box:nth-child(2) {
-  background-color: green;
+  background-color: orange;
 }
 
 .individual-box:nth-child(3) {
-  background-color: pink;
-}
-
-.individual-box:nth-child(4) {
   background-color: yellow;
 }
 
+.individual-box:nth-child(4) {
+  background-color: green;
+}
+
 .individual-box:nth-child(5) {
-  background-color: purple;
+  background-color: blue;
 }
 
 .hidden {
