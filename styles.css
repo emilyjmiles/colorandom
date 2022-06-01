@@ -89,11 +89,22 @@ h2 {
   border: 2.5px solid black;
 }
 
-h3 {
-  border: none;
+.button-section {
+  width: 80vw;
+  display: flex;
+  justify-content: space-evenly;
 }
 
+button {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  box-shadow: 4px 4px;
+}
 
+.saved-section {
+  
+}
 
 .hidden {
   display: none!important;
