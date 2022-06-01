@@ -1,6 +1,6 @@
 * {
   font-family: "Arial", sans-serif;
-  border: 1px solid black;
+  /* border: 1px solid red; */
 }
 
 body {
@@ -10,13 +10,18 @@ body {
 .mainSection {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 80vw;
   height: 100%;
+  align-items: center;
+  border-right: 3px solid black;
 }
 
 .all-color-boxes {
   display: flex;
   justify-content: space-evenly;
+  height: 50vh;
+  width: 80vw;
+  align-items: center;
 }
 
 .individual-box {
@@ -24,45 +29,81 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  width: 200px;
-  height: 200px;
-}
-
-.box {
-  width: 200px;
-  height: 200px;
+  width: 15%;
+  height: 35%;
 }
 
 .color-and-lock {
   display: flex;
-  flex-direction: flex-end;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  height: 20%;
+  border: none;
+  align-items: center;
 }
 
 h2 {
   font-size: 12px;
-  width: 200px;
-  height: 40px;
+  width: 80%;
+  height: 100%;
   text-align: center;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.individual-box:nth-child(1) {
+.box1 {
   background-color: red;
+  height: 80%;
+  width: 100%;
+  border: 2.5px solid black;
 }
 
-.individual-box:nth-child(2) {
+.box2 {
   background-color: orange;
+  height: 80%;
+  width: 100%;
+  border: 2.5px solid black;
 }
 
-.individual-box:nth-child(3) {
+.box3 {
   background-color: yellow;
+  height: 80%;
+  width: 100%;
+  border: 2.5px solid black;
 }
 
-.individual-box:nth-child(4) {
+.box4 {
   background-color: green;
+  height: 80%;
+  width: 100%;
+  border: 2.5px solid black;
 }
 
-.individual-box:nth-child(5) {
+.box5 {
   background-color: blue;
+  height: 80%;
+  width: 100%;
+  border: 2.5px solid black;
+}
+
+.button-section {
+  width: 80vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  box-shadow: 4px 4px;
+}
+
+.saved-section {
+  
 }
 
 .hidden {
