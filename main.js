@@ -1,25 +1,19 @@
-
-
 var newButton = document.querySelector(".new-button");
-var hexcode = document.querySelector(".hex1")
+var hexcode = document.querySelector(".hex1");
+var lockButton1 = document.querySelector(".unlocked1");
+var lockButton2 = document.querySelector(".unlocked2");
+var lockButton3 = document.querySelector(".unlocked3");
+var lockButton4 = document.querySelector(".unlocked4");
+var lockButton5 = document.querySelector(".unlocked5");
+var palette = new Palette();
 
 
-var newColor;
+newButton.addEventListener("click", test);
+lockButton1.addEventListener("click",)
 
-newButton.addEventListener("click", randomizeHexCodes);
 
 
-function randomizeHexCodes(array) {
-  var hexChoices = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
-  var hexId = '#';
-  for(var i = 0; i < 6; i++){
-    newHexCodes = Math.floor(Math.random() * hexChoices.length)
-    hexId += hexChoices[i];
-  }
-}
+function test () {
 
-function generateColor() {
-  var randomColor = new Color(randomizeHexCodes(hexcode));
-  hexcode.innerText = newColor;
-
+  console.log(palette)
 }
