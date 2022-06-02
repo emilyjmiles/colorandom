@@ -16,6 +16,7 @@ h2 {
   justify-content: center;
   align-items: center;
 }
+
 .hidden{
   display: none!important;
 }
@@ -106,5 +107,7 @@ button {
   border: 2.5px solid black;
 }
 .saved-section {
-  
+  text-align: center;
+  border: 2.5px solid red;
+  width: 20vw;
 }
