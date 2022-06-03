@@ -3,13 +3,19 @@ class Palette {
     this.id = Date.now();
     this.colors = [];
   }
-  addColorToPalette() {
-    for (var i = 0; i < 6; i++) {
-      var newColor = new Color()
+
+  generateColor(hex, indexPosition) {
+    var newColor = new Color(hex);
+    if (this.colors[indexPosition]) {
+        this.colors[indexPosition] = newColor;
+    } else {
       this.colors.push(newColor);
+    }
+  }
 
-
-
+  generateRandomPalette() {
+    for (var i = 0; i < 5; i++) {
+      this.generateColor(undefined, i);
     }
   }
 }
