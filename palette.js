@@ -10,6 +10,7 @@ class Palette {
         this.colors[indexPosition] = newColor;
     } else {
       this.colors.push(newColor);
+      console.log(this.colors, "palette");
     }
   }
 
