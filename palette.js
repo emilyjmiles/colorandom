@@ -1,7 +1,7 @@
 class Palette {
-  constructor() {
+  constructor(colors) {
     this.id = Date.now();
-    this.colors = this.generateRandomPalette();
+    this.colors = colors || this.generateRandomPalette();
   }
 
   generateRandomPalette() {
