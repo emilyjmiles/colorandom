@@ -107,7 +107,7 @@ h4 {
 
 
 .box1 {
-  background-color: red;
+  /* background-color: red; */
   height: 80%;
   width: 100%;
   border: 2.5px solid black;

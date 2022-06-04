@@ -1,33 +1,25 @@
 class Palette {
   constructor() {
     this.id = Date.now();
-    this.colors = [];
-  }
-
-  generateColor(hex, indexPosition) {
-    var newColor = new Color(hex);
-    if (this.colors[indexPosition]) {
-        this.colors[indexPosition] = newColor;
-    } else {
-      this.colors.push(newColor);
-    }
+    this.colors = this.generateRandomPalette();
   }
 
   generateRandomPalette() {
+    var randomPalette = [];
     for (var i = 0; i < 5; i++) {
-      this.generateColor(color.hex, i);
+      randomPalette.push(new Color());
     }
+    return randomPalette;
   }
 
   lockUnlockColor() {
-    // newColor = new Color();
-    for (var i = 0; i < palette.colors.length; i++) {
-      if (palette.colors[i].locked === false) {
-        palette.colors[i].locked = true;
+    for (var i = 0; i < this.colors.length; i++) {
+      if (this.colors[i].locked === false) {
+        this.colors[i].locked = true;
         lockButton.innerText = '🔒';
-        console.log(palette.colors, "colors.length");
+        console.log(this.colors, "colors.length");
       } else {
-        palette.colors[i].locked = false;
+        this.colors[i].locked = false;
         lockButton.innerText = '🔓';
       }
     }
