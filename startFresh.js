@@ -9,8 +9,10 @@ var lockButton5 = document.querySelector('.lock5');
 var hexCodes = document.querySelectorAll('.hex');
 var boxList = document.querySelectorAll('#boxlist');
 var allColorBoxes = document.querySelector(".all-color-boxes");
+var savedColors = document.querySelector(".saved-colors");
 
 var currentPalette = "";
+var savedPalettes = [];
 
 //event listener for lock/unlock color
 
@@ -20,11 +22,18 @@ var currentPalette = "";
 // lockButton4.addEventListener("click", palette.lockUnlockColor);
 // lockButton5.addEventListener("click", palette.lockUnlockColor);
 window.addEventListener("load", onPageLoad)
+
 newPaletteButton.addEventListener("click", createNewPalette)
+savePaletteButton.addEventListener("click", saveMiniPalette)
 
 function onPageLoad() {
-  currentPalette = new Palette;
+  currentPalette = new Palette();
   updateColors();
+}
+
+function saveMiniPalette(){
+  saveCurrentPalette();
+  displayMiniPalette();
 }
 
 function updateColors() {
@@ -45,7 +54,28 @@ function updateColors() {
 
 function createNewPalette() {
   currentPalette.colors = currentPalette.generateRandomPalette();
-  console.log(currentPalette);
   updateColors();
+}
 
+function saveCurrentPalette() {
+  var savedPalette = new Palette(currentPalette.colors);
+    savedPalettes.push(savedPalette);
+    console.log(savedPalettes);
+}
+
+function displayMiniPalette() {
+  console.log(savedColors);
+  savedColors.innerHTML = "";
+  for (var i = 0; i < savedPalettes.length; i++) {
+    console.log('stuff');
+    savedColors.innerHTML +=
+    `<section class="mini-palette">
+      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[0].hexCode}"></div>
+      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[1].hexCode}"></div>
+      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[2].hexCode}"></div>
+      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[3].hexCode}"></div>
+      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[4].hexCode}"></div>
+      <div class="trash-can"></div>
+    </section>`
+  }
 }
