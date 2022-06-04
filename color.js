@@ -1,6 +1,6 @@
 class Color {
-    constructor(hexCode = this.generateHexCode()) {
-      this.hexCode = hexCode
+    constructor() {
+      this.hexCode = this.generateHexCode();
       this.locked = false;
     }
 
@@ -16,4 +16,4 @@ class Color {
     }
       return hexId;
   }
-}
+};
