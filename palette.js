@@ -23,17 +23,4 @@ class Palette {
     }
     return randomPalette;
   }
-
-//   lockUnlockColor() {
-//     for (var i = 0; i < this.colors.length; i++) {
-//       if (this.colors[i].locked === false) {
-//         this.colors[i].locked = true;
-//         lockButton.innerText = '🔒';
-//       } else {
-//         this.colors[i].locked = false;
-//         lockButton.innerText = '🔓';
-//       }
-//     }
-//   }
-// }
 }
