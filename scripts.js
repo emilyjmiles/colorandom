@@ -6,7 +6,7 @@ var boxList = document.querySelector('#boxlist');
 var allColorBoxes = document.querySelector('.all-color-boxes');
 var savedColors = document.querySelector('.saved-colors');
 var miniPalette = document.querySelector('.mini-palette');
-var trashCan = document.querySelector('#trashCan');
+
 
 var currentPalette = "";
 var savedPalettes = [];
@@ -75,7 +75,7 @@ function displayMiniPalette() {
       <div class="mini-box" style="background-color: ${savedPalettes[i].colors[2].hexCode}"></div>
       <div class="mini-box" style="background-color: ${savedPalettes[i].colors[3].hexCode}"></div>
       <div class="mini-box" style="background-color: ${savedPalettes[i].colors[4].hexCode}"></div>
-      <div class="trash-can" id="trashCan">🗑</div>
+      <div class="trash-can" id="${savedPalettes[i].id}">🗑</div>
     </section>`
   }
 }
@@ -94,11 +94,14 @@ function lockColor(event) {
 }
 
 function removeSavedPalette() {
+  if (event.target.classList.contains("trash-can")) {
+    event.target.closest('section').remove();
+  }
   for (var i = 0; i < savedPalettes.length; i++) {
-    if (event.target.className === "trash-can") {
-      console.log(event.target.id);
+    if (savedPalettes[i].id == event.target.parentElement.id) {
       savedPalettes.splice(i, 1);
+      displayMiniPalette();
+      return savedPalettes;
     }
   }
-  displayMiniPalette();
 }
