@@ -143,3 +143,17 @@ h4 {
   border: 2.5px solid red;
   width: 20vw;
 }
+.mini-palette {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 15%;
+  width 100%;
+  border: 2.5px solid red;
+}
+
+.mini-box {
+  height: 20px;
+  width: 20px;
+  border: 2.5px solid black
+}
