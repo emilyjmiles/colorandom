@@ -28,6 +28,10 @@ class Palette {
       if (this.colors[i].locked === false) {
         this.colors[i].locked = true;
         lockButton.innerText = '🔒';
+
+
+        console.log(this.colors, "colors.length");
+
       } else {
         this.colors[i].locked = false;
         lockButton.innerText = '🔓';

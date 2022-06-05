@@ -107,33 +107,29 @@ h4 {
 
 
 .box1 {
-  /* background-color: red; */
   height: 80%;
   width: 100%;
   border: 2.5px solid black;
 }
+
 .box2 {
-  background-color: orange;
   height: 80%;
   width: 100%;
   border: 2.5px solid black;
 }
 .box3 {
-  background-color: yellow;
   height: 80%;
   width: 100%;
   border: 2.5px solid black;
 }
 
 .box4 {
-  background-color: green;
   height: 80%;
   width: 100%;
   border: 2.5px solid black;
 }
 
 .box5 {
-  background-color: blue;
   height: 80%;
   width: 100%;
   border: 2.5px solid black;
@@ -143,17 +139,18 @@ h4 {
   border: 2.5px solid red;
   width: 20vw;
 }
+
 .mini-palette {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   height: 15%;
-  width 100%;
+  width: 100%;
   border: 2.5px solid red;
 }
 
 .mini-box {
   height: 20px;
   width: 20px;
-  border: 2.5px solid black
+  border: 2.5px solid black;
 }

@@ -10,6 +10,9 @@ var hexCodes = document.querySelectorAll('.hex');
 var boxList = document.querySelectorAll('.boxlist');
 var allColorBoxes = document.querySelector('.all-color-boxes');
 var savedColors = document.querySelector('.saved-colors');
+var boxList = document.querySelectorAll('#boxlist');
+var allColorBoxes = document.querySelector(".all-color-boxes");
+var savedColors = document.querySelector(".saved-colors");
 
 var currentPalette = "";
 var savedPalettes = [];
@@ -27,6 +30,7 @@ function onPageLoad() {
     currentPalette = new Palette();
     updateColors();
 }
+
 function saveMiniPalette() {
   saveCurrentPalette();
   displayMiniPalette();
@@ -52,11 +56,7 @@ function updateColors() {
       <div class="color-and-lock">
         <h2 class="hex">${currentPalette.colors[i].hexCode}</h2>
         <h3 class="lock ${lockedClass}" type="lock">${lockedEmoji}</h3>
-      </div>
-    </section>`
-  }
-  allColorBoxes.innerHTML = allColors;
-}
+
 
 function createNewPalette() {
   currentPalette.colors = currentPalette.generateRandomPalette();
@@ -94,6 +94,6 @@ function displayMiniPalette() {
         }
 
         updateColors();
-
   }
 }
+
