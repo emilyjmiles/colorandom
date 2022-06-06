@@ -41,9 +41,9 @@
   - [Will Hobson](https://github.com/willhobson85)
   - [Emily Miles](https://github.com/emilyjmiles)
 
-## Project Spec & Ruberic
+## Project Spec & Rubric
 
   - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-1/colorandom-v2.html)
 
 ## Published link
-  - You can view the website [here](https://github.com/emilyjmiles/colorandom-group-project)
+  - You can view the website [here](https://emilyjmiles.github.io/colorandom-group-project/)
