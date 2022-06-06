@@ -46,4 +46,4 @@
   - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-1/colorandom-v2.html)
 
 ## Published link
-  - You can view the website [here]()
+  - You can view the website [here](https://github.com/emilyjmiles/colorandom-group-project)
