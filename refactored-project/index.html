@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>ColoRandom</title>
+  </head>
+  <body>
+    <section class="main-section">
+      <h1>COLORANDOM</h1>
+      <section class="all-color-boxes">
+        <section class="individual-box">
+          <section class="box" style="background-color:blue" id="boxList">
+          </section>
+          <div class="color-and-lock">
+            <h2 class="hex">#111111</h2>
+            <h3 class="lock open" type="lock">🔓</h3>
+          </div>
+        </section>
+      </section>
+      <section class="button-section">
+        <button class="new-button" type="button">New Palette</button>
+        <button class="save-button" type="button">Save Palette</button>
+      </section>
+    </section>
+    <aside class="saved-section">
+      <h4>Saved Palettes</h4>
+      <section class="saved-colors">
+        <section class="mini-palette">
+          <div class="mini-box1"></div>
+          <div class="mini-box2"></div>
+          <div class="mini-box3"></div>
+          <div class="mini-box4"></div>
+          <div class="mini-box5"></div>
+          <div class="trash-can" id="trashCan"></div>
+        </section>
+      </section>
+    </aside>
+    <script type="text/javascript" src="color.js"></script>
+    <script type="text/javascript" src="palette.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+  </body>
+</html>
