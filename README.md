@@ -1,6 +1,6 @@
 # ColoRandom
 
-<p align="center"><img width="750" alt="self-care-GH" src=""></p>
+<!-- <p align="center"><img width="750" src=""></p> -->
 
 ## Table of Contents
 
