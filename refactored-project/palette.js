@@ -1,13 +1,13 @@
 class Palette {
-  constructor(colors) {
+  constructor (colors) {
     this.id = Date.now();
     this.colors = colors || this.displayInitialPalette();
   }
 
   generateRandomPalette() {
-    var randomPalette = [];
-    for (var i = 0; i < 5; i++) {
-      if(this.colors[i].locked === false) {
+    const randomPalette = [];
+    for (let i = 0; i < 5; i++) {
+      if (!this.colors[i].locked) {
         randomPalette.push(new Color());
       } else {
         randomPalette.push(this.colors[i]);
@@ -17,8 +17,8 @@ class Palette {
   }
 
   displayInitialPalette() {
-    var randomPalette = [];
-    for (var i = 0; i < 5; i++) {
+    const randomPalette = [];
+    for (let i = 0; i < 5; i++) {
       randomPalette.push(new Color());
     }
     return randomPalette;
