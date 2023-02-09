@@ -16,7 +16,7 @@ savedColors.addEventListener('click', removeSavedPalette);
 
 function displayPageLoad() {
   currentPalette = new Palette();
-  updateColors();
+  generateColors();
 };
 
 function saveMiniPalette() {
@@ -25,34 +25,34 @@ function saveMiniPalette() {
   createNewPalette();
 };
 
-function updateColors() {
+function generateColors() {
   let lockedEmoji = '';
   let lockedClass = '';
-  let allColors = '';
-  for (let i = 0; i < currentPalette.colors.length; i++) {
-    if (currentPalette.colors[i].locked === true) {
+
+  currentPalette.colors.map(color => {
+    if (color.locked) {
       lockedEmoji = '🔒';
       lockedClass = 'close';
     } else {
       lockedEmoji = '🔓';
       lockedClass = 'open';
     }
-    allColors +=
-      `<section class="individual-box">
-        <section class="box" style="background-color:${currentPalette.colors[i].hexCode}" id="boxList${i}">
-        </section>
-        <div class="color-and-lock">
-          <h2 class="hex">${currentPalette.colors[i].hexCode}</h2>
-          <h3 class="lock ${lockedClass}" type="lock">${lockedEmoji}</h3>
-        </div>
-      </section>`;
-  }
-  allColorBoxes.innerHTML = allColors;
+    allColorBoxes.innerHTML += `<section class="individual-box">
+      <section class="box" style="background-color:${color.hexCode}" id="boxList${color}">
+      </section>
+      <div class="color-and-lock">
+        <h2 class="hex">${color.hexCode}</h2>
+        <h3 class="lock ${lockedClass}" type="lock">${lockedEmoji}</h3>
+      </div>
+    </section>`;
+
+    return allColorBoxes;
+  });
 };
 
 function createNewPalette() {
   currentPalette.colors = currentPalette.generateRandomPalette();
-  updateColors();
+  generateColors();
 };
 
 function saveCurrentPalette() {
@@ -87,7 +87,7 @@ function lockColor(event) {
     } else {
       currentPalette.colors[index].locked = false;
     }
-    updateColors();
+    generateColors();
   }
 };
 
