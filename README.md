@@ -65,7 +65,7 @@ You can find the project [here](https://github.com/emilyjmiles/colorandom-group-
 
 1. Clone the repo
    ```sh
-   git@github.com:emilyjmiles/colorandom-group-project.git
+   git@github.com:emilyjmiles/colorandom.git
 2. CD into the project directory you wish to view (original or refactored)
 
 3. Once in the proper directory, open the application by running:
