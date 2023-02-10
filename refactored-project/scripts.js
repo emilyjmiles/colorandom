@@ -1,17 +1,21 @@
 const newPaletteButton = document.querySelector('.new-button');
 const savePaletteButton = document.querySelector('.save-button');
-const individualBox = document.querySelector('.individual-box');
-const boxList = document.querySelector('.box');
+// const deletePaletteButton = document.querySelector('.delete-button');
+
 const allColorBoxes = document.querySelector('.all-color-boxes');
+// const individualBox = document.querySelector('.individual-box');
+const colorBox = document.querySelector('.color-box');
 const savedColors = document.querySelector('.saved-colors');
+const miniPalette = document.querySelector('.mini-palette');
 
 const savedPalettes = [];
 let currentPalette;
+let lockImage;
+let lockClass;
 
 window.addEventListener('load', displayPageLoad);
 newPaletteButton.addEventListener('click', createNewPalette);
 savePaletteButton.addEventListener('click', saveMiniPalette);
-allColorBoxes.addEventListener('click', lockColor);
 savedColors.addEventListener('click', removeSavedPalette);
 
 function displayPageLoad() {
@@ -26,27 +30,39 @@ function saveMiniPalette() {
 };
 
 function generateColors() {
-  let lockedEmoji = '';
-  let lockedClass = '';
-
+  allColorBoxes.innerHTML = '';
   currentPalette.colors.map(color => {
-    if (color.locked) {
-      lockedEmoji = '🔒';
-      lockedClass = 'close';
+    if (!color.locked) {
+      lockImage = './assets/lock-icon-open.webp';
+      lockClass = 'unlocked';
     } else {
-      lockedEmoji = '🔓';
-      lockedClass = 'open';
+      lockImage = './assets/lock-icon-closed.webp';
+      lockClass = 'locked';
     }
-    allColorBoxes.innerHTML += `<section class="individual-box">
-      <section class="box" style="background-color:${color.hexCode}" id="boxList${color}">
-      </section>
+    allColorBoxes.innerHTML += `<section class="individual-box" id=${color.hexCode}>
+      <div class="color-box" style="background-color:${color.hexCode}"></div>
       <div class="color-and-lock">
         <h2 class="hex">${color.hexCode}</h2>
-        <h3 class="lock ${lockedClass}" type="lock">${lockedEmoji}</h3>
-      </div>
-    </section>`;
+        <img type="button" class="lock-button ${lockClass}" src="${lockImage}" width="90px" height="100px" onclick="lockColor()">
+        </div>
+        </section>`;
 
     return allColorBoxes;
+  });
+};
+
+function lockColor() {
+  const colorboxarea = event.target.closest('section');
+
+  currentPalette.colors.forEach(color => {
+    if (colorboxarea.id === color.hexCode) {
+      if (color.locked === false) {
+        color.locked = true;
+      } else {
+        color.locked = false;
+      }
+    }
+    generateColors();
   });
 };
 
@@ -62,34 +78,19 @@ function saveCurrentPalette() {
 
 function displayMiniPalette() {
   savedColors.innerHTML = '';
-  savedPalettes.forEach(palette => {
-    palette.colors.forEach(color => {
-      console.log(color);
-      savedColors.innerHTML +=
-        `<section class="mini-palette">
-          <div class="mini-box" style="background-color: ${savedPalettes[i].colors[0].hexCode}"></div>
-          <div class="mini-box" style="background-color: ${savedPalettes[i].colors[1].hexCode}"></div>
-          <div class="mini-box" style="background-color: ${savedPalettes[i].colors[2].hexCode}"></div>
-          <div class="mini-box" style="background-color: ${savedPalettes[i].colors[3].hexCode}"></div>
-          <div class="mini-box" style="background-color: ${savedPalettes[i].colors[4].hexCode}"></div>
-          <div class="trash-can" data-id="${savedPalettes[i].id}">🗑</div>
-        </section>`;
-    });
-  });
-};
-
-function lockColor(event) {
-  const colorboxarea = event.target.id.slice(0, 7);
-  if (colorboxarea === 'boxList') {
-    const index = event.target.id.slice(7, 8);
-    if (currentPalette.colors[index].locked === false) {
-      currentPalette.colors[index].locked = true;
-    } else {
-      currentPalette.colors[index].locked = false;
-    }
-    generateColors();
+  for (var i = 0; i < savedPalettes.length; i++) {
+    savedColors.innerHTML +=
+      `<section class="mini-palette">
+      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[0].hexCode}"></div>
+      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[1].hexCode}"></div>
+      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[2].hexCode}"></div>
+      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[3].hexCode}"></div>
+      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[4].hexCode}"></div>
+      <div class="trash-can" data-id="${savedPalettes[i].id}">🗑</div>
+    </section>`;
   }
 };
+
 
 function removeSavedPalette() {
   if (event.target.classList.contains('trash-can')) {

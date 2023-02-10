@@ -1,5 +1,6 @@
 * {
   font-family: 'Marker Felt', sans-serif;
+  border: 1px solid red;
 }
 
 body {
@@ -7,7 +8,7 @@ body {
   background: url('https://user-images.githubusercontent.com/103063934/171786178-a3f0810e-4fe1-489a-aed9-0d20bc58261b.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center,fixed;
+  background-position: fixed;
 }
 
 h1 {
@@ -20,7 +21,7 @@ h1 {
 }
 
 h2 {
-  font-size: 12px;
+  font-size: 1rem;
   text-align: center;
   height: 100%;
   width: 80%;
@@ -48,32 +49,35 @@ button:active {
 }
 
 h4 {
+  text-align: center;
   font-size: 2.5em;
   background: linear-gradient(to right, #818589, #A9A9A9, #C0C0C0, #D3D3D3, #E5E4E2, #E5E4E2, #D3D3D3, #C0C0C0, #A9A9A9, #818589);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 1.25px;
+  -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
 
 .main-section {
-  height: 100%;
-  width: 80vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 80vw;
 }
 
 .all-color-boxes {
-  height: 50vh;
-  width: 80vw;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  height: 50vh;
+  width: 80vw;
 }
 
-.box{
-  height: 80%;
-  width: 100%;
+.color-box{
+  aspect-ratio: 1/1;
+  min-width: max-content;
   border: 1px solid black;
 }
 
@@ -84,39 +88,46 @@ h4 {
 }
 
 .color-and-lock {
-  height: 20%;
-  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  width: 100%;
 }
 
 .individual-box {
-  height: 35%;
-  width: 15%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
+  min-width: 12vw;
+  max-width: 90vw;
+  height: auto;
+}
+
+.lock-button {
+  width: 20%;
+  height: auto;
+  margin: 1%;
+}
+
+.lock-button:hover {
+  transform: scale(1.1);
 }
 
 .saved-section {
   text-align: center;
   height: 100vh;
   width: 20vw;
-  border-left: 3px solid black;
+  border-left: 3px solid #000000;
 }
 
 .mini-palette {
-  height: 15%;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  width: 100%;
 }
 
 .mini-box {
-  height: 20px;
-  width: 20px;
-  border: 2.5px solid black;
+  aspect-ratio: 1/1;
+  width: 2.5vw;
+  border: 2px solid #000000;
 }
