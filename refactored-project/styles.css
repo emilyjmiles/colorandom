@@ -1,27 +1,32 @@
 * {
-  font-family: 'Marker Felt', sans-serif;
-  border: 1px solid red;
+  font-family: 'Genos', sans-serif;
+  /* border: 1px solid red; */
 }
 
 body {
-  display: flex;
-  background: url('https://user-images.githubusercontent.com/103063934/171786178-a3f0810e-4fe1-489a-aed9-0d20bc58261b.png');
+  background: url('./assets/colorandom-bg.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: fixed;
 }
 
+main {
+  display: flex;
+}
+
+header {
+  display: flex;
+}
+
 h1 {
-  font-size: 5em;
-  background: linear-gradient(to right, #818589, #A9A9A9, #C0C0C0, #D3D3D3, #E5E4E2, #E5E4E2, #D3D3D3, #C0C0C0, #A9A9A9, #818589);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 2.5px;
-  -webkit-text-stroke-color: black;
+  font-family: 'Skranji', cursive;
+  font-size: 7.5em;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 h2 {
-  font-size: 1rem;
+  font-size: 2rem;
   text-align: center;
   height: 100%;
   width: 80%;
@@ -50,35 +55,73 @@ button:active {
 
 h4 {
   text-align: center;
-  font-size: 2.5em;
-  background: linear-gradient(to right, #818589, #A9A9A9, #C0C0C0, #D3D3D3, #E5E4E2, #E5E4E2, #D3D3D3, #C0C0C0, #A9A9A9, #818589);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  font-size: 3em;
+  color: black;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+}
+
+.colo {
+  color: #000000;
+}
+
+.random {
+  -webkit-text-stroke: 3px #000000;
+}
+
+.r {
+  color: #ff0000ab;
+}
+
+.a {
+  color: #ffa500ab;
+}
+
+.n {
+  color: #ffff00ab;
+}
+
+.d {
+  color: #008000ab;
+}
+
+.o {
+  color: #0000ffab;
+}
+
+.m {
+  color: #800080ab;
 }
 
 .main-section {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
-  height: 100%;
+  min-height: 100vh;
   width: 80vw;
 }
 
 .all-color-boxes {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   flex-wrap: wrap;
-  height: 50vh;
   width: 80vw;
+}
+
+.individual-box {
+  display: flex;
+  flex-direction: column;
+  min-width: 12vw;
+  max-width: 90vw;
+  height: auto;
 }
 
 .color-box{
   aspect-ratio: 1/1;
-  min-width: max-content;
-  border: 1px solid black;
+  width: 100%;
+  border: 2px solid black;
 }
 
 .button-section {
@@ -92,14 +135,6 @@ h4 {
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-}
-
-.individual-box {
-  display: flex;
-  flex-direction: column;
-  min-width: 12vw;
-  max-width: 90vw;
-  height: auto;
 }
 
 .lock-button {
@@ -124,6 +159,8 @@ h4 {
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
 }
 
 .mini-box {

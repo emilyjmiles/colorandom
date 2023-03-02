@@ -27,6 +27,7 @@ function saveMiniPalette() {
   saveCurrentPalette();
   displayMiniPalette();
   createNewPalette();
+  console.log(savedPalettes);
 };
 
 function generateColors() {
