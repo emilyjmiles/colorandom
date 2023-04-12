@@ -8,7 +8,7 @@ const colorBox = document.querySelector('.color-box');
 const savedColors = document.querySelector('.saved-colors');
 const miniPalette = document.querySelector('.mini-palette');
 
-const savedPalettes = [];
+let savedPalettes = [];
 let currentPalette;
 let lockImage;
 let lockClass;
@@ -20,7 +20,7 @@ savedColors.addEventListener('click', removeSavedPalette);
 
 function displayPageLoad() {
   currentPalette = new Palette();
-  generateColors();
+  displayColors();
 };
 
 function saveMiniPalette() {
@@ -29,7 +29,7 @@ function saveMiniPalette() {
   createNewPalette();
 };
 
-function generateColors() {
+function displayColors() {
   allColorBoxes.innerHTML = '';
   currentPalette.colors.map(color => {
     if (!color.locked) {
@@ -39,6 +39,7 @@ function generateColors() {
       lockImage = './assets/lock-icon-closed.webp';
       lockClass = 'locked';
     }
+
     allColorBoxes.innerHTML += `<section class="individual-box" id=${color.hexCode}>
       <div class="color-box" style="background-color:${color.hexCode}"></div>
       <div class="color-and-lock">
@@ -47,7 +48,7 @@ function generateColors() {
         </div>
         </section>`;
 
-    return allColorBoxes;
+    // return allColorBoxes;
   });
 };
 
@@ -62,19 +63,23 @@ function lockColor() {
         color.locked = false;
       }
     }
-    generateColors();
+    displayColors();
   });
 };
 
 function createNewPalette() {
   currentPalette.colors = currentPalette.generateRandomPalette();
-  generateColors();
+  displayColors();
 };
 
 function saveCurrentPalette() {
-  const savedPalette = new Palette(currentPalette.colors);
-  savedPalettes.push(savedPalette);
-};
+  const newPalette = new Palette(currentPalette.colors);
+  const savedIds = savedPalettes.map(palette => palette.id);
+
+  if (!savedIds.includes(newPalette.id)) {
+    savedPalettes.push(newPalette);
+  }
+}
 
 function displayMiniPalette() {
   savedColors.innerHTML = '';

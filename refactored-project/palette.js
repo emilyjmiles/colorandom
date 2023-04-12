@@ -1,7 +1,9 @@
 class Palette {
   constructor (colors) {
-    this.id = Date.now();
     this.colors = colors || this.displayInitialPalette();
+    this.id = this.colors.reduce((id, color) => {
+      return id += color.hexCode;
+    }, '');
   }
 
   generateRandomPalette() {
