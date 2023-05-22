@@ -3,12 +3,12 @@ const savePaletteButton = document.querySelector('.save-button');
 // const deletePaletteButton = document.querySelector('.delete-button');
 
 const allColorBoxes = document.querySelector('.all-color-boxes');
-// const individualBox = document.querySelector('.individual-box');
 const colorBox = document.querySelector('.color-box');
 const savedColors = document.querySelector('.saved-colors');
 const miniPalette = document.querySelector('.mini-palette');
+// const miniColorBox = document.querySelector('.mini-color-box');
 
-let savedPalettes = [];
+const savedPalettes = [];
 let currentPalette;
 let lockImage;
 let lockClass;
@@ -40,15 +40,14 @@ function displayColors() {
       lockClass = 'locked';
     }
 
-    allColorBoxes.innerHTML += `<section class="individual-box" id=${color.hexCode}>
-      <div class="color-box" style="background-color:${color.hexCode}"></div>
-      <div class="color-and-lock">
-        <h2 class="hex">${color.hexCode}</h2>
-        <img type="button" class="lock-button ${lockClass}" src="${lockImage}" width="90px" height="100px" onclick="lockColor()">
+    return allColorBoxes.innerHTML +=
+      `<section class="individual-box" id=${color.hexCode}>
+        <div class="color-box" style="background-color:${color.hexCode}"></div>
+        <div class="color-and-lock">
+          <h2 class="hex">${color.hexCode}</h2>
+          <img type="button" class="lock-button ${lockClass}" src="${lockImage}" width="90px" height="100px" onclick="lockColor()">
         </div>
-        </section>`;
-
-    // return allColorBoxes;
+      </section>`;
   });
 };
 
@@ -94,6 +93,11 @@ function displayMiniPalette() {
       <div class="trash-can" data-id="${savedPalettes[i].id}">🗑</div>
     </section>`;
   }
+  // saved palettes is an array of class objects
+  // each palette class object then contains another array of color class objects
+  // I need to iterate over the saved palettes and display each color in the individual palette and an icon to delete the palette
+  // I cannot access the color hex codes without iterating through the individual palette's color array
+  // maybe try a reduce with a forEach and 
 };
 
 
