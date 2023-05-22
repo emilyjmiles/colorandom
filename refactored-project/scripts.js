@@ -1,14 +1,12 @@
 const newPaletteButton = document.querySelector('.new-button');
 const savePaletteButton = document.querySelector('.save-button');
-// const deletePaletteButton = document.querySelector('.delete-button');
 
 const allColorBoxes = document.querySelector('.all-color-boxes');
-// const individualBox = document.querySelector('.individual-box');
 const colorBox = document.querySelector('.color-box');
 const savedColors = document.querySelector('.saved-colors');
 const miniPalette = document.querySelector('.mini-palette');
 
-let savedPalettes = [];
+const savedPalettes = [];
 let currentPalette;
 let lockImage;
 let lockClass;
@@ -40,15 +38,21 @@ function displayColors() {
       lockClass = 'locked';
     }
 
-    allColorBoxes.innerHTML += `<section class="individual-box" id=${color.hexCode}>
-      <div class="color-box" style="background-color:${color.hexCode}"></div>
-      <div class="color-and-lock">
-        <h2 class="hex">${color.hexCode}</h2>
-        <img type="button" class="lock-button ${lockClass}" src="${lockImage}" width="90px" height="100px" onclick="lockColor()">
+    allColorBoxes.innerHTML +=
+      `<section class="individual-box" id=${color.hexCode}>
+        <div class="color-box" style="background-color:${color.hexCode}"></div>
+        <div class="color-and-lock">
+          <h2 class="hex">${color.hexCode}</h2>
+          <img
+            type="button"
+            class="lock-button ${lockClass}" 
+            src="${lockImage}" 
+            width="90px" 
+            height="100px" 
+            onclick="lockColor()"
+          />
         </div>
-        </section>`;
-
-    // return allColorBoxes;
+      </section>`;
   });
 };
 
@@ -83,17 +87,17 @@ function saveCurrentPalette() {
 
 function displayMiniPalette() {
   savedColors.innerHTML = '';
-  for (var i = 0; i < savedPalettes.length; i++) {
+  savedPalettes.map(palette => {
+    const miniColorsHTML = palette.colors.map(color => (
+      `<div class="mini-box" style="background-color: ${color.hexCode}"></div>`
+    )).join('');
+
     savedColors.innerHTML +=
       `<section class="mini-palette">
-      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[0].hexCode}"></div>
-      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[1].hexCode}"></div>
-      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[2].hexCode}"></div>
-      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[3].hexCode}"></div>
-      <div class="mini-box" style="background-color: ${savedPalettes[i].colors[4].hexCode}"></div>
-      <div class="trash-can" data-id="${savedPalettes[i].id}">🗑</div>
+      ${miniColorsHTML}
+      <div class="trash-can" data-id="${palette.id}">🗑</div>
     </section>`;
-  }
+  });
 };
 
 
