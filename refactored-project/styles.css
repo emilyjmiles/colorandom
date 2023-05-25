@@ -49,6 +49,7 @@ button {
 button:hover {
   transform: scale(1.25);
   background: linear-gradient(to right, #C0C0C0, #D3D3D3, #E5E4E2, #E5E4E2, #D3D3D3, #C0C0C0);
+  cursor: pointer;
 }
 
 button:active {
@@ -151,6 +152,7 @@ h4 {
 
 .lock-button:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .saved-section {
@@ -175,4 +177,6 @@ h4 {
   border: 2px solid #000000;
 }
 
-
+.trash-can {
+  cursor: pointer;
+}
